@@ -10,6 +10,9 @@
 #' @export
 #'
 #' @examples
+#' 
+#' 
+
 cnv_table <- function(x) {
   sample_ID <- unlist(strsplit(x, '_'))[1]
   if (dim(try(read.delim(x)))[1] ==4){
@@ -35,7 +38,7 @@ cnv_table <- function(x) {
 #'
 #' @param x file name vector
 #'
-#' @return
+#' @return cnv table with Entres_Gene_Id
 #' @export
 #'
 #' @examples

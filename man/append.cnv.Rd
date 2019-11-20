@@ -9,6 +9,12 @@ append.cnv(x)
 \arguments{
 \item{x}{file name vector}
 }
+\value{
+cnv table with Entres_Gene_Id
+}
 \description{
 append CNV from file name vector
+}
+\examples{
+
 }
