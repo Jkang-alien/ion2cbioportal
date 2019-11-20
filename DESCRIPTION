@@ -1,9 +1,9 @@
-Package: cnv4cbio
+Package: ion2cbioportal
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Tools for data transform from ion torrent to cbioportal
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Jun Kang
+Maintainer: The package maintainer <jkang.alien@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
