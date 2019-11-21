@@ -4,8 +4,8 @@
 
 library(org.Hs.eg.db)
 e2s = toTable(org.Hs.egSYMBOL)
-oca <- read.csv('oca.csv')
-gene_list <- as.character(oca$GENE[oca$CNV == 'CNV'])
+cnv_genes <- "AKT1 AKT2 AKT3 ALK AXL AR BRAF CCND1 CCND2 CCND3 CCNE1 CDK2 CDK4 CDK6 EGFR ERBB2 ESR1 FGF19 FGF3 FGFR1 FGFR2 FGFR3 FGFR4 FLT3 IGF1R KIT KRAS MDM2 MDM4 MET MYC MYCL MYCN NTRK1 NTRK2 NTRK3 PDGFRA PDGFRB PIK3CB PIK3CA PPARG RICTOR TERT"
+gene_list <- unlist(strsplit(cnv_genes, " "))
 
 entrez_id <- c()
 for (i in gene_list) {
@@ -16,4 +16,4 @@ for (i in gene_list) {
 cnv_df <- data.frame(Entres_Gene_Id = entrez_id)
 cnv <- c(rep(NA, length(gene_list)))
 
-devtools::use_data(cnv, entrez_id, gene_list, cnv_df, internal = TRUE, overwrite =TRUE)
+usethis::use_data(cnv, entrez_id, gene_list, cnv_df, internal = TRUE, overwrite =TRUE)

@@ -14,7 +14,7 @@
 #' 
 
 cnv_table <- function(x) {
-  sample_ID <- unlist(strsplit(x, '_'))[1]
+  sample_ID <- stringr::str_extract(x, 'M[0-9]{2}-[0-9]{1,8}')
   if (dim(try(read.delim(x)))[1] ==4){
     cnv <- cnv
   } else {
