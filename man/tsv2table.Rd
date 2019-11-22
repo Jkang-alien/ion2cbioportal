@@ -17,5 +17,4 @@ Append cnv data to data.frame cnv_df
 }
 \examples{
 
-tsv2table("filename.tsv")
 }

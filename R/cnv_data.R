@@ -7,13 +7,12 @@
 #'
 #' @examples
 #' 
-#' tsv2table("filename.tsv")
 
 tsv2table <- function(x) {
   sample_ID <- stringr::str_extract(x, 'M[0-9]{2}-[0-9]{1,8}')
-  if (dim(try(read.delim(x)))[1] ==4){
-    cnv <- cnv
-  } else {
+  #if (dim(try(read.delim(x)))[1] ==4){
+  #  cnv <- cnv
+  #} else {
     data <- read.delim(x, comment.char = "#")
     cn <- data$FORMAT.1.CN[data$rowtype=='CNV']
     gene_id <- as.character(data$ID[data$rowtype=='CNV'])
@@ -24,11 +23,11 @@ tsv2table <- function(x) {
       cnv[gene_list==gene_id[i]] <- round(log2(cn[i]), digits = 2)
       }
   }
-  }
+  
    cnv <- cbind(cnv)
    colnames(cnv) <- sample_ID
    return(cnv)
-  }
+}
 
 #' append CNV from file name vector
 #'
@@ -63,7 +62,7 @@ append.cnv <- function(x) {
 merge_cnv <- function(f_list){
   m_id <- stringr::str_extract(f_list, 'M[0-9]{2}-[0-9]{1,8}')
   cnv_table <- as.numeric(entrez_id)
-  for (i in length(f_list)) {
+  for (i in 1:length(f_list)) {
     cnv_table <- cbind(cnv_table, tsv2table(f_list[i]))
   }
   colnames(cnv_table) <- c('Entrez_Gene_Id', m_id)
@@ -79,8 +78,7 @@ merge_cnv <- function(f_list){
 #' @export
 #'
 #' @examples
-#' 
-#' 
+#'  
 
 
 discretize_cnv <- function(cnv_table) {

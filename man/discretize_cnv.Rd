@@ -7,7 +7,7 @@
 discretize_cnv(cnv_table)
 }
 \arguments{
-\item{table}{matrix table of cnv}
+\item{cnv_table}{matrix table of cnv}
 }
 \value{
 discrete cnv table
@@ -16,7 +16,5 @@ discrete cnv table
 transform cnv table to discrete form 0, 2
 }
 \examples{
-
-discretize_cnv(cnv_table)
-
+ 
 }
