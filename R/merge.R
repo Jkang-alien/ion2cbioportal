@@ -16,5 +16,5 @@ all_maf <- function(input_directory){
   maftools::write.mafSummary(maf_all, "all")
   file.remove(c("all_geneSummary.txt", "all_sampleSummary.txt", "all_summary.txt"))
   file.show("all_maftools.maf")
-  filesstrings::file.move("./all_maftools.maf", "./example_data")
+  filesstrings::file.move("./all_maftools.maf", "./example_data", overwrite = TRUE)
 }
