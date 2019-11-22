@@ -18,5 +18,6 @@ extract vcf and tsv files to vcf and tsv directory
 extract vcf filtered and tsv filtered files from ion torrent zip files
 }
 \examples{
-extract_ion2cbio(".")
+
+
 }

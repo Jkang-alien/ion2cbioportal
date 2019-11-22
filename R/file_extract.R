@@ -8,7 +8,8 @@
 #' @export
 #'
 #' @examples
-#' extract_ion2cbio(".")
+#' 
+#' 
 
 extract_ion2cbio <- function(input_directory, output_directory){
   
