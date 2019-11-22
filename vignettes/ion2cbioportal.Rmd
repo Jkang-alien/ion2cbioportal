@@ -24,7 +24,7 @@ Two subdirectories (vcf and tsv) will be created and include files.
 
 ##### 2. Transform vcf to maf  
 
-Go to terminal and run shell script `/home/molpath/Desktop/temp_2019_1.sh`. Then maf directory will be created in /home/molpath/cbioportal_data/maf/.  
+Go to terminal and run shell script `/home/molpath/Desktop/temp_2019_1.sh`. Then maf directory will be created in `/home/molpath/cbioportal_data/maf/`.  
 
 Below does not work. NOTE ONLY.
 
@@ -45,7 +45,7 @@ system(vcf2maf_script[1])
 
 ##### 3. Merge maf files  
 
-Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (./example_data/all_maftools.maf). This is the final cbioportal maf data file.  
+Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (`./example_data/all_maftools.maf`). This is the final cbioportal maf data file.  
 
 ```{r merge maf}
 all_maf("./maf")
@@ -63,6 +63,22 @@ write.table(table_cnv, './example_data/data_log2_CNA.txt', append = FALSE, quote
 write.table(discrete_table, './example_data/data_CNA.txt', append = FALSE, quote = FALSE, sep = "\t", na = "NA", dec = ".", col.names = TRUE, row.names = FALSE)
 ```
 
+##### 5. Import cbioportal data
 
+```{}
+cd /home/molpath/cbioprotal_data/example_data
+docker run --rm --net cbio-net \
+    -v "$PWD/portalinfo:/portalinfo" \
+    -w /cbioportal/core/src/main/scripts \
+    cbioportal-image \
+    ./dumpPortalInfo.pl /portalinfo
+docker run -it --rm --net cbio-net \
+    -v "$PWD:/study:ro" \
+    -v "$HOME/Desktop:/outdir" \
+    -v "$PWD/portalinfo:/portalinfo:ro" \
+    cbioportal-image \
+    metaImport.py -p /portalinfo -s /study -v -o
+docker restart cbioportal-container
+```
 
 
