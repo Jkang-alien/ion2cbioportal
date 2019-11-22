@@ -2,5 +2,7 @@
 
 export(all_maf)
 export(append.cnv)
-export(cnv_table)
+export(discretize_cnv)
 export(extract_ion2cbio)
+export(merge_cnv)
+export(tsv2table)

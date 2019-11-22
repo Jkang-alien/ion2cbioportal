@@ -1,7 +1,3 @@
-
-#devtools::use_data(cnv, entrez_id, gene_list, internal = TRUE, overwrite =TRUE)
-
-
 #' Append cnv data to data.frame cnv_df
 #'
 #' @param x file name
@@ -11,9 +7,9 @@
 #'
 #' @examples
 #' 
-#' 
+#' tsv2table("filename.tsv")
 
-cnv_table <- function(x) {
+tsv2table <- function(x) {
   sample_ID <- stringr::str_extract(x, 'M[0-9]{2}-[0-9]{1,8}')
   if (dim(try(read.delim(x)))[1] ==4){
     cnv <- cnv
@@ -50,4 +46,46 @@ append.cnv <- function(x) {
   }
   colnames(table)[1] <- 'Entrez_Gene_Id'
   return(table)
+}
+
+#' merge CNV from tsv files
+#'
+#' @param x character vector of tsv file name use list.files
+#'
+#' @return cnv table with Entres_Gene_Id
+#' @export
+#'
+#' @examples
+#' f_list <- list.files('/home/molpath/cbioportal_data/output/tsv/', full.names = TRUE)
+#' merge_cnv(f_list)
+
+
+merge_cnv <- function(f_list){
+  m_id <- stringr::str_extract(f_list, 'M[0-9]{2}-[0-9]{1,8}')
+  cnv_table <- as.numeric(entrez_id)
+  for (i in length(f_list)) {
+    cnv_table <- cbind(cnv_table, tsv2table(f_list[i]))
+  }
+  colnames(cnv_table) <- c('Entrez_Gene_Id', m_id)
+  return(cnv_table)
+}
+
+
+#' transform cnv table to discrete form 0, 2
+#'
+#' @param cnv_table matrix table of cnv
+#'
+#' @return discrete cnv table
+#' @export
+#'
+#' @examples
+#' 
+#' 
+
+
+discretize_cnv <- function(cnv_table) {
+  cnv_table[is.na(cnv_table)] <- 0
+  cnv_table[cnv_table>=2] <- 2
+  cnv_table[,1] <- as.numeric(entrez_id)
+  return(cnv_table)
 }

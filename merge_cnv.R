@@ -1,16 +1,13 @@
 library(ion2cbioportal)
 
-f_list <- list.files('/home/molpath/cbioportal_data/output/tsv/', full.names = TRUE)
-cnv_table(f_list[1])
+f_list <- list.files('/home/molpath/cbioportal_data/output/tsv/')
 
-table <- matrix(nrow=43)
-
+table <- as.numeric(entrez_id)
 for (j in f_list) {
   table <- cbind(table, cnv_table(j))
 }
 
-append.cnv(table)
-table[,1] <- 'Entrez_Gene_Id'
+colnames(table)[1] <- 'Entrez_Gene_Id'
 
 discrete_table <- table
 
