@@ -49,14 +49,14 @@ append.cnv <- function(x) {
 
 #' merge CNV from tsv files
 #'
-#' @param x character vector of tsv file name use list.files
+#' @param f_list character vector of tsv file name use list.files
 #'
 #' @return cnv table with Entres_Gene_Id
 #' @export
 #'
 #' @examples
-#' f_list <- list.files('/home/molpath/cbioportal_data/output/tsv/', full.names = TRUE)
-#' merge_cnv(f_list)
+#' 
+#' 
 
 
 merge_cnv <- function(f_list){

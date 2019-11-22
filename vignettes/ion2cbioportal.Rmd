@@ -1,0 +1,37 @@
+---
+title: "ion2cbioportal"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ion2cbioportal}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+ion2cbioportal is a R package for transformation of the iontorrent files to the cbioportal data files. The ion torrent files include a vcf and a tsv files. Both files should be filtered file that means both files includes only filtered variants not all variants. Both files are tied in one compressed files per one sample test. The cbioportal data file has maf and cnv table files (https://github.com/cBioPortal/cbioportal/blob/master/docs/File-Formats.md).
+
+#### Steps  
+
+##### 1. Extract vcf and tsv from a compressed files  
+```{r extract_ion2cbio}
+extract_ion2cbio("/home/molpath/cbioportal_data/zip", "/home/molpath/cbioportal_data/output")
+```
+
+Two subdirectories (vcf and tsv) will be created and include files.  
+
+##### 2. Transform vcf to maf  
+
+Go to terminal and run shell script /home/molpath/Desktop/temp_2019_1.sh. Then maf directory will be created in /home/molpath/cbioportal_data/maf/.  
+
+##### 3. Merge maf files  
+
+Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged.
+
+```{r merge maf}
+all_maf
+
+
+

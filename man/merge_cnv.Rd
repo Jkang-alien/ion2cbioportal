@@ -7,7 +7,7 @@
 merge_cnv(f_list)
 }
 \arguments{
-\item{x}{character vector of tsv file name use list.files}
+\item{f_list}{character vector of tsv file name use list.files}
 }
 \value{
 cnv table with Entres_Gene_Id
@@ -16,6 +16,6 @@ cnv table with Entres_Gene_Id
 merge CNV from tsv files
 }
 \examples{
-f_list <- list.files('/home/molpath/cbioportal_data/output/tsv/', full.names = TRUE)
-merge_cnv(f_list)
+
+
 }
