@@ -6,7 +6,9 @@
 #' @export
 #'
 #' @examples
-#' 
+#' \dontrun{
+#' tsb2table("M19-0000")
+#' }
 
 tsv2table <- function(x) {
   sample_ID <- stringr::str_extract(x, 'M[0-9]{2}-[0-9]{1,8}')
@@ -29,24 +31,6 @@ tsv2table <- function(x) {
    return(cnv)
 }
 
-#' append CNV from file name vector
-#'
-#' @param x file name vector
-#'
-#' @return cnv table with Entres_Gene_Id
-#' @export
-#'
-#' @examples
-#'
-append.cnv <- function(x) {
-  table <- as.numeric(entrez_id)
-  for (j in x) {
-    table <- cbind(table, cnv_table(j))
-  }
-  colnames(table)[1] <- 'Entrez_Gene_Id'
-  return(table)
-}
-
 #' merge CNV from tsv files
 #'
 #' @param f_list character vector of tsv file name use list.files
@@ -55,7 +39,10 @@ append.cnv <- function(x) {
 #' @export
 #'
 #' @examples
-#' 
+#' \dontrun{
+#' f_list <- list.files("/path/to/tsv/directory/", full.names = TRUE)
+#' merge_cnv(f_list)
+#' }
 #' 
 
 
@@ -78,7 +65,11 @@ merge_cnv <- function(f_list){
 #' @export
 #'
 #' @examples
-#'  
+#' \dontrun{
+#' f_list <- list.files("/path/to/tsv/directory/", full.names = TRUE)
+#' cnv_table <- merge_cnv(f_list)
+#' discretize_cnv(cnv_table)
+#' } 
 
 
 discretize_cnv <- function(cnv_table) {

@@ -16,5 +16,7 @@ cnv data.frame
 Append cnv data to data.frame cnv_df
 }
 \examples{
-
+\dontrun{
+tsb2table("M19-0000")
+}
 }

@@ -16,6 +16,9 @@ cnv table with Entres_Gene_Id
 merge CNV from tsv files
 }
 \examples{
-
+\dontrun{
+f_list <- list.files("/path/to/tsv/directory/", full.names = TRUE)
+merge_cnv(f_list)
+}
 
 }

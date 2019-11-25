@@ -16,5 +16,9 @@ discrete cnv table
 transform cnv table to discrete form 0, 2
 }
 \examples{
- 
+\dontrun{
+f_list <- list.files("/path/to/tsv/directory/", full.names = TRUE)
+cnv_table <- merge_cnv(f_list)
+discretize_cnv(cnv_table)
+} 
 }
