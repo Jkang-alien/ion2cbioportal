@@ -66,7 +66,7 @@ write.table(discrete_table, './example_data/data_CNA.txt', append = FALSE, quote
 ##### 5. Import cbioportal data
 
 ```{}
-cd /home/molpath/cbioprotal_data/example_data
+cd /home/molpath/cbioportal_data/example_data
 docker run --rm --net cbio-net \
     -v "$PWD/portalinfo:/portalinfo" \
     -w /cbioportal/core/src/main/scripts \
