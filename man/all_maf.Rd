@@ -17,5 +17,6 @@ merge maf from vcf file
 }
 \examples{
 
-
+\dontrun{
+all_maf("./maf")}
 }

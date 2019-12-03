@@ -63,22 +63,41 @@ write.table(table_cnv, './example_data/data_log2_CNA.txt', append = FALSE, quote
 write.table(discrete_table, './example_data/data_CNA.txt', append = FALSE, quote = FALSE, sep = "\t", na = "NA", dec = ".", col.names = TRUE, row.names = FALSE)
 ```
 
-##### 5. Import cbioportal data
+##### 5. Make case list files  
+
+`make_case_list` generates `Case list files` in `study-dir/case_lists` directory.  
+
+```{r}
+make_case_list("~/cbioportal_data/maf")
+```
+
+##### 6. Import cbioportal data  
+
+If cbioportal is deploied with thehyve docker image, follow the instructions. https://github.com/thehyve/cbioportal-docker/blob/master/docs/example_commands.md `-o` option means overriding warnings.  
+
 
 ```{}
-cd /home/molpath/cbioportal_data/example_data
-docker run --rm --net cbio-net \
-    -v "$PWD/portalinfo:/portalinfo" \
-    -w /cbioportal/core/src/main/scripts \
-    cbioportal-image \
-    ./dumpPortalInfo.pl /portalinfo
+cd ./cbioportal_data/study-dir/
+
 docker run -it --rm --net cbio-net \
-    -v "$PWD:/study:ro" \
+    -v /home/molpath/cbioportal-docker/portal.properties:/cbioportal/portal.properties:ro \
+    -v "$PWD/:/study:ro" \
     -v "$HOME/Desktop:/outdir" \
-    -v "$PWD/portalinfo:/portalinfo:ro" \
     cbioportal-image \
-    metaImport.py -p /portalinfo -s /study -v -o
+    metaImport.py -o -u http://cbioportal-container:8080/cbioportal -s /study --html=/outdir/report.html
+
 docker restart cbioportal-container
 ```
 
+##### 7. Lessons  
 
+1. The thehyve is better than the cbioportal documentation for deploing cbioportal using docker. The cbioportal documentation makes problem in migration of database to latest version.  
+
+2. If migration of database to latest version fails, the undefined cancer type error will follow.  
+
+3. vcf2maf https://github.com/mskcc/vcf2mafInstall 
+Download and unpack VEP's offline cache for GRCh37, GRCh38, and GRCm38: This download takes very long time (3 days).  
+
+4. Vignette will be installed with `devtools::build_vignettes()` -> `devtools::check()` -> `devtools::build()` -> install.package from source `install.packages("~/ion2cbioportal_0.1.0.tar.gz", repos = NULL, type = "source")`
+
+5. Example in roxygen comments will be checked whether it can be run during `devtools::check()`. If it fails executing, error will follow. When the example command is not executable in the given environment, use `\dontrun{}`.  

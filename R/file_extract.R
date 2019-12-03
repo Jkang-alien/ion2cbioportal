@@ -8,7 +8,9 @@
 #' @export
 #'
 #' @examples
-#' 
+#' \dontrun{
+#' extract_ion2cbio("/home/molpath/cbioportal_data/zip", "/home/molpath/cbioportal_data/output")
+#' }
 #' 
 
 extract_ion2cbio <- function(input_directory, output_directory){

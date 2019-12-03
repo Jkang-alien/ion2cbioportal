@@ -3,5 +3,6 @@
 export(all_maf)
 export(discretize_cnv)
 export(extract_ion2cbio)
+export(make_case_list)
 export(merge_cnv)
 export(tsv2table)
