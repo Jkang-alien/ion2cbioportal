@@ -37,7 +37,8 @@ extract_ion2cbio <- function(input_directory, output_directory){
                full.names=TRUE)
     from <- list_files[grep("Filtered.*vcf$", list_files)]
     molecular_number <- stringr::str_extract(from, 'M[0-9]{2}-[0-9]{1,8}')
-    to <- paste0(output_directory, "/vcf/", molecular_number, i, ".vcf")
+    to <- paste0(output_directory, "/vcf/", molecular_number, #i,
+                 ".vcf")
     
     file.copy(from, to)
   }
@@ -49,7 +50,8 @@ extract_ion2cbio <- function(input_directory, output_directory){
                              full.names=TRUE)
     from <- list_files[grep("oncomine.tsv$", list_files)]
     molecular_number <- stringr::str_extract(from, 'M[0-9]{2}-[0-9]{1,8}')
-    to <- paste0(output_directory, "/tsv/", molecular_number, i, ".tsv")
+    to <- paste0(output_directory, "/tsv/", molecular_number, #i,
+                 ".tsv")
     file.copy(from, to)
   }
 }
