@@ -12,7 +12,7 @@
 
 make_case_list <- function (x) {
   # Create case_list files in case_lists directory
-  
+  dir.create("/home/molpath/cbioportal_data/temp/case_lists")
   file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_cna")
   file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_cnvseq")
   file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_sequenced")
