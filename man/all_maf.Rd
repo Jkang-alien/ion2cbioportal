@@ -2,21 +2,23 @@
 % Please edit documentation in R/merge.R
 \name{all_maf}
 \alias{all_maf}
-\title{merge maf from vcf file}
+\title{merge maf}
 \usage{
-all_maf(input_directory)
+all_maf(input_directory, output_directory)
 }
 \arguments{
-\item{input_directory}{character of directory of vcf files}
+\item{input_directory}{character of directory of maf files}
+
+\item{output_directory}{character of directory of merged maf files}
 }
 \value{
 merged maf file
 }
 \description{
-merge maf from vcf file
+merge maf
 }
 \examples{
 
 \dontrun{
-all_maf("./maf")}
+all_maf("./maf", "/output/directory/")}
 }

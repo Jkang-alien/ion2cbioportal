@@ -45,10 +45,10 @@ system(vcf2maf_script[1])
 
 ##### 3. Merge maf files  
 
-Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (`./example_data/all_maftools.maf`). This is the final cbioportal maf data file.  
+Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (`output/directory/all_maftools.maf`). This is the final cbioportal maf data file.  
 
 ```{r merge maf}
-all_maf("./maf")
+all_maf("./maf", "/output/directory")
 ```
 
 

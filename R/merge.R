@@ -1,7 +1,9 @@
 
-#' merge maf from vcf file
+#' merge maf
 #'
-#' @param input_directory character of directory of vcf files
+#' @param input_directory character of directory of maf files
+#' 
+#' @param output_directory character of directory of merged maf files
 #' 
 #' @return merged maf file
 #' 
@@ -10,12 +12,12 @@
 #' @examples
 #' 
 #' \dontrun{
-#' all_maf("./maf")}
+#' all_maf("./maf", "/output/directory/")}
 
-all_maf <- function(input_directory){
+all_maf <- function(input_directory, output_directory){
   maf_all <- maftools::merge_mafs(list.files(input_directory, full.names = TRUE))
   maftools::write.mafSummary(maf_all, "all")
   file.remove(c("all_geneSummary.txt", "all_sampleSummary.txt", "all_summary.txt"))
   file.show("all_maftools.maf")
-  filesstrings::file.move("./all_maftools.maf", "./example_data", overwrite = TRUE)
+  filesstrings::file.move("./all_maftools.maf", output_directory, overwrite = TRUE)
 }

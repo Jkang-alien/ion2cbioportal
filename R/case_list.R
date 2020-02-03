@@ -13,14 +13,14 @@
 make_case_list <- function (x) {
   # Create case_list files in case_lists directory
   
-  file.create("~/cbioportal_data/study-dir/case_lists/case_list_cna")
-  file.create("~/cbioportal_data/study-dir/case_lists/case_list_cnvseq")
-  file.create("~/cbioportal_data/study-dir/case_lists/case_list_sequenced")
+  file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_cna")
+  file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_cnvseq")
+  file.create("/home/molpath/cbioportal_data/temp/case_lists/case_list_sequenced")
   
   # Write on case list files
 
   file_path_list <- list.files(x)
-  fileConn<-file("~/cbioportal_data/study-dir/case_lists/case_list_cna")
+  fileConn<-file("/home/molpath/cbioportal_data/temp/case_lists/case_list_cna")
   writeLines(c("cancer_study_identifier: cmc_oca",
               "stable_id: cmc_oca_cna",
               "case_list_name: cmc_oca_cna",
@@ -35,7 +35,7 @@ make_case_list <- function (x) {
   
   close(fileConn)
   
-  fileConn<-file("~/cbioportal_data/study-dir/case_lists/case_list_cnvseq")
+  fileConn<-file("/home/molpath/cbioportal_data/temp/case_lists/case_list_cnvseq")
   writeLines(c("cancer_study_identifier: cmc_oca",
                "stable_id: cmc_oca_cnvseq",
                "case_list_name: cmc_oca_cnvseq",
@@ -50,7 +50,7 @@ make_case_list <- function (x) {
   
   close(fileConn)
   
-  fileConn<-file("~/cbioportal_data/study-dir/case_lists/case_list_sequenced")
+  fileConn<-file("/home/molpath/cbioportal_data/temp/case_lists/case_list_sequenced")
   writeLines(c("cancer_study_identifier: cmc_oca",
                "stable_id: cmc_oca_sequenced",
                "case_list_name: cmc_oca_sequenced",
