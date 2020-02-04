@@ -12,13 +12,13 @@ append_patient(new_patient_file, old_patient_file)
 \item{old_patient_file}{file path to old patient data file}
 }
 \value{
-appended patient data file in /home/molpath/cbioportal_data/study-dir/
+appended patient data file overriding the original data file
 }
 \description{
 Append patient data file
 }
 \examples{
 \dontrun{
-append_all_maf(new_patient_file, old_patient_file)
+append_patient(new_patient_file, old_patient_file)
 }
 }

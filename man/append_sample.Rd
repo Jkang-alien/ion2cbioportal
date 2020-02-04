@@ -7,18 +7,18 @@
 append_sample(new_sample_file, old_sample_file)
 }
 \arguments{
-\item{new_sample_file}{file path to new patient data file}
+\item{new_sample_file}{file path to new sample data file}
 
-\item{old_sample_file}{file path to old patient data file}
+\item{old_sample_file}{file path to old sample data file}
 }
 \value{
-appended patient data file in /home/molpath/cbioportal_data/study-dir/
+appended sample data file overriding the original data file
 }
 \description{
 Append sample data file
 }
 \examples{
 \dontrun{
-append_all_maf(new_sample_file, old_sampe_file)
+append_sample(new_sample_file, old_sampe_file)
 }
 }

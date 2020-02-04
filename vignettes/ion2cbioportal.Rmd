@@ -71,7 +71,43 @@ write.table(discrete_table, './example_data/data_CNA.txt', append = FALSE, quote
 make_case_list("~/cbioportal_data/maf")
 ```
 
-##### 6. Import cbioportal data  
+##### 6. Append new data to old data  
+
+##### 6.1. Clinical data file  
+
+```{r}
+append_patient(new_patient_file, old_patient_file)
+append_sample(new_sample_file, old_sampe_file)
+```
+
+Checklist of the patient and sample files  
+
+- Is each data row ended without white space
+- Is the last line ended with /n
+- No additional empty data after the last line
+
+###### 6.2. MAF file  
+
+```{r}
+append_all_maf(new_maf_file, old_maf_file)
+```
+
+###### 6.3 CNV discrete file  
+
+```{r}
+append_discrete_cnv(new_discrete_cnv_table, old_discrete_cnv_file)
+```
+
+###### 6.4 Case list files  
+
+```{r}
+append_list(new_list_directory, old_list_directory)
+```
+
+
+The appended data files will override the original data files. It is safe to copy the last data set and override the original data.  
+
+##### 7. Import cbioportal data  
 
 If cbioportal is deploied with thehyve docker image, follow the instructions. https://github.com/thehyve/cbioportal-docker/blob/master/docs/example_commands.md `-o` option means overriding warnings.  
 

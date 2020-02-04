@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' tsb2table("M19-0000")
+#' tsv2table("M19-0000")
 #' }
 
 tsv2table <- function(x) {

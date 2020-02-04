@@ -7,18 +7,18 @@
 append_list(new_list_directory, old_list_directory)
 }
 \arguments{
-\item{new_list_directory}{file path to new patient data file}
+\item{new_list_directory}{file path to new case list directory}
 
-\item{old_list_directory}{file path to old patient data file}
+\item{old_list_directory}{file path to old case list directory}
 }
 \value{
-appended patient data file in /home/molpath/cbioportal_data/study-dir/
+appended case list data files overriding the original data files
 }
 \description{
 Append case list file
 }
 \examples{
 \dontrun{
-append_all_maf(new_sample_file, old_sampe_file)
+append_list(new_list_directory, old_list_directory)
 }
 }

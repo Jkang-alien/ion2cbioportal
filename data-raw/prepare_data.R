@@ -16,4 +16,68 @@ for (i in gene_list) {
 cnv_df <- data.frame(Entres_Gene_Id = entrez_id)
 cnv <- c(rep(NA, length(gene_list)))
 
-usethis::use_data(cnv, entrez_id, gene_list, cnv_df, internal = TRUE, overwrite =TRUE)
+fusion_genes <- "AKT2
+ALK
+AR
+AXL
+BRCA1
+BRCA2
+BRAF
+CDKN2A
+EGFR
+ERBB2
+ERBB4
+ERG
+ESR1
+ETV1
+ETV4
+ETV5
+FGFR1
+FGFR2
+FGFR3
+FGR
+FLT3
+JAK2
+KRAS
+MDM4
+MET
+MYB
+MYBL1
+NF1
+NOTCH1
+NOTCH4
+NRG1
+NTRK1
+NTRK2
+NTRK3
+NUTM1
+PDGFRA
+PDGFRB
+PIK3CA
+PRKACA
+PRKACB
+PTEN
+PPARG
+RAD51B
+RAF1
+RB1
+RELA
+RET
+ROS1
+RSPO2
+RSPO3
+TERT"
+
+fusion_gene_list <- unlist(strsplit(fusion_genes, "\n"))
+
+fusion_entrez_id <- c()
+for (i in fusion_gene_list) {
+  a <- e2s$gene_id[e2s$symbol == i]
+  fusion_entrez_id <- append (fusion_entrez_id, a)
+}
+
+fusion_df <- data.frame(Entres_Gene_Id = fusion_entrez_id, Gene = fusion_gene_list)
+
+
+usethis::use_data(cnv, entrez_id, gene_list, cnv_df, fusion_entrez_id, fusion_df,
+                  internal = TRUE, overwrite =TRUE)
