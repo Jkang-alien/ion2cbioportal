@@ -5,6 +5,7 @@
 #' @param input_directory string of path to input directory
 #' @param output_directory string of path to output directory
 #' @return extract vcf and tsv files to vcf and tsv directory
+#' @import utils
 #' @export
 #'
 #' @examples
