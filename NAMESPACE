@@ -3,6 +3,7 @@
 export(all_maf)
 export(append_all_maf)
 export(append_discrete_cnv)
+export(append_fusion)
 export(append_list)
 export(append_patient)
 export(append_sample)
