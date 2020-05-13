@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-ion2cbioportal is a R package for transformation of the iontorrent files to the cbioportal data files. The ion torrent files include a vcf and a tsv files. Both files should be filtered file that means both files includes only filtered variants not all variants. Both files are tied in one compressed files per one sample test. The cbioportal data file has maf and cnv table files (https://github.com/cBioPortal/cbioportal/blob/master/docs/File-Formats.md).
+ion2cbioportal is a R package for transformation of the ion torrent files to the cbioportal data files. The ion torrent files include a vcf and a tsv files. Both files should be filtered file that means both files includes only filtered variants not all variants. Both files are tied in one compressed files per one sample test. The cbioportal data file has maf and cnv table files (https://github.com/cBioPortal/cbioportal/blob/master/docs/File-Formats.md).
 
 #### Steps  
 
@@ -45,7 +45,7 @@ system(vcf2maf_script[1])
 
 ##### 3. Merge maf files  
 
-Because the cbioportal maf file should includes all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (`output/directory/all_maftools.maf`). This is the final cbioportal maf data file.  
+Because the cbioportal maf file should include all data in one maf file, maf files of multiple samples must be merged. The `all_maf(/path/to/maf/need/to/merge)` generates merged maf file (`output/directory/all_maftools.maf`). This is the final cbioportal maf data file.  
 
 ```{r merge maf}
 all_maf("./maf", "/output/directory")
@@ -109,7 +109,7 @@ The appended data files will override the original data files. It is safe to cop
 
 ##### 7. Import cbioportal data  
 
-If cbioportal is deploied with thehyve docker image, follow the instructions. https://github.com/thehyve/cbioportal-docker/blob/master/docs/example_commands.md `-o` option means overriding warnings.  
+If cbioportal is deployed with thehyve docker image, follow the instructions. https://github.com/thehyve/cbioportal-docker/blob/master/docs/example_commands.md `-o` option means overriding warnings.  
 
 
 ```{}
@@ -127,9 +127,9 @@ docker restart cbioportal-container
 
 ##### 7. Lessons  
 
-1. The thehyve is better than the cbioportal documentation for deploing cbioportal using docker. The cbioportal documentation makes problem in migration of database to latest version.  
+1. The thehyve is better than the cbioportal documentation for deploying cbioportal using docker. The cbioportal documentation makes problem in migration of database to latest version.  
 
-2. If migration of database to latest version fails, the undefined cancer type error will follow.  
+2. If migration of the database to latest version fails, the undefined cancer type error will follow.  
 
 3. vcf2maf https://github.com/mskcc/vcf2mafInstall 
 Download and unpack VEP's offline cache for GRCh37, GRCh38, and GRCm38: This download takes very long time (3 days).  
