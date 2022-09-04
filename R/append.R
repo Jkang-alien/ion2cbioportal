@@ -1,23 +1,24 @@
 #' Append all_maf file
-#'
-#' @param new_maf_file file path to new patient data file
-#' 
-#' @param old_maf_file file path to old patient data file
-#' 
+#' @param pathTodirectory path to directory of new maf
+#' @param new_maf_file file path to new maf file 
+#' @param old_maf_file file path to old maf file
 #' @return appended all_maf file overriding the original data file
-#'
 #' @export
-#'
 #' @examples
 #' \dontrun{
-#' append_all_maf(new_maf_file, old_maf_file)
+#' append_all_maf(pathTodirectory, new_maf_file, old_maf_file)
 #' }
 
-append_all_maf <- function(new_maf_file, old_maf_file){
+append_all_maf <- function(pathTodirectory, new_maf_file, old_maf_file){
+  
+  file.copy(old_maf_file, 
+            paste0(pathTodirectory, "/temp/all_maf.maf"),
+            overwrite = TRUE)
+  
   new_maf <- readLines(new_maf_file,
                        skipNul = TRUE)
   write(new_maf[-1],
-        file=old_maf_file,
+        file=paste0(pathTodirectory, "/temp/all_maf.maf"),
         append=TRUE)
 }
 
@@ -47,25 +48,25 @@ append_patient <- function(new_patient_file, old_patient_file){
 
 #' Append sample data file
 #'
-#' @param new_sample_file file path to new sample data file
-#' 
-#' @param old_sample_file file path to old sample data file
-#' 
+#' @param pathTodirectory directory path to data file
+#' @param new_sample_file file path to new sample data file 
+#' @param old_sample_file file path to old sample data file 
 #' @return appended sample data file overriding the original data file
-#'
 #' @export
-#'
 #' @examples
 #' \dontrun{
-#' append_sample(new_sample_file, old_sampe_file)
+#' append_sample(pathTodirectory, new_sample_file, old_sampe_file)
 #' }
 
-append_sample <- function(new_sample_file, old_sample_file){
+append_sample <- function(pathTodirectory, new_sample_file, old_sample_file){
+  file.copy(old_sample_file, 
+            paste0(pathTodirectory, "/temp/sample_data.txt"),
+            overwrite = TRUE)
   con <- file(new_sample_file)
   new_sample <- readLines(con,skipNul = TRUE)
   close(con)
-  write(new_sample[-(1:5)], 
-        file=old_sample_file, 
+  write(new_sample[-1], 
+        file=paste0(pathTodirectory, "/temp/sample_data.txt"), 
         append=TRUE)
 }
 

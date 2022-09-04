@@ -17,6 +17,6 @@ Make case list files
 }
 \examples{
 \dontrun{
-make_case_list("~/cbioportal_data/maf")
+make_case_list(x)
 }
 }

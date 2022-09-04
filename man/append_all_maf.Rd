@@ -4,12 +4,14 @@
 \alias{append_all_maf}
 \title{Append all_maf file}
 \usage{
-append_all_maf(new_maf_file, old_maf_file)
+append_all_maf(pathTodirectory, new_maf_file, old_maf_file)
 }
 \arguments{
-\item{new_maf_file}{file path to new patient data file}
+\item{pathTodirectory}{path to directory of new maf}
 
-\item{old_maf_file}{file path to old patient data file}
+\item{new_maf_file}{file path to new maf file}
+
+\item{old_maf_file}{file path to old maf file}
 }
 \value{
 appended all_maf file overriding the original data file
@@ -19,6 +21,6 @@ Append all_maf file
 }
 \examples{
 \dontrun{
-append_all_maf(new_maf_file, old_maf_file)
+append_all_maf(pathTodirectory, new_maf_file, old_maf_file)
 }
 }

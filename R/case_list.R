@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' make_case_list("~/cbioportal_data/maf")
+#' make_case_list(x)
 #' }
 
 make_case_list <- function (x) {

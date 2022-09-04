@@ -4,9 +4,11 @@
 \alias{append_sample}
 \title{Append sample data file}
 \usage{
-append_sample(new_sample_file, old_sample_file)
+append_sample(pathTodirectory, new_sample_file, old_sample_file)
 }
 \arguments{
+\item{pathTodirectory}{directory path to data file}
+
 \item{new_sample_file}{file path to new sample data file}
 
 \item{old_sample_file}{file path to old sample data file}
@@ -19,6 +21,6 @@ Append sample data file
 }
 \examples{
 \dontrun{
-append_sample(new_sample_file, old_sampe_file)
+append_sample(pathTodirectory, new_sample_file, old_sampe_file)
 }
 }
