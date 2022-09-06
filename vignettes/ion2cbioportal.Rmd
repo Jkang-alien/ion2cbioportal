@@ -113,15 +113,14 @@ If cbioportal is deployed with thehyve docker image, follow the instructions. ht
 
 
 ```{}
-cd ./cbioportal_data/study-dir/
+cd ~/cbioportal-docker-compose
 
-docker run -it --rm --net cbio-net \
-    -v /home/molpath/cbioportal-docker/portal.properties:/cbioportal/portal.properties:ro \
-    -v "$PWD/:/study:ro" \
-    -v "$HOME/Desktop:/outdir" \
-    cbioportal-image \
-    metaImport.py -o -u http://cbioportal-container:8080/cbioportal -s /study --html=/outdir/report.html
+docker-compose run \
+    -v /home/humintec/cbioportal_report:/report \
+    cbioportal \
+    metaImport.py -u http://cbioportal:8080 -s /study/tnbcCMC -o --html=/report/report.html
 
+docker-compose restart cbioportal
 docker restart cbioportal-container
 ```
 
