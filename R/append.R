@@ -2,7 +2,7 @@
 #' @param pathTodirectory path to directory of new maf
 #' @param new_maf_file file path to new maf file 
 #' @param old_maf_file file path to old maf file
-#' @return appended all_maf file overriding the original data file
+#' @return make appended all_maf file in temp subdirectory of the old maf directory
 #' @export
 #' @examples
 #' \dontrun{
@@ -10,6 +10,10 @@
 #' }
 
 append_all_maf <- function(pathTodirectory, new_maf_file, old_maf_file){
+  
+  if (!dir.exists(paste0(pathTodirectory, "/temp"))){
+    dir.create(paste0(pathTodirectory, "/temp"))
+  }
   
   file.copy(old_maf_file, 
             paste0(pathTodirectory, "/temp/all_maf.maf"),
