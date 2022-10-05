@@ -14,7 +14,7 @@ append_all_maf(pathTodirectory, new_maf_file, old_maf_file)
 \item{old_maf_file}{file path to old maf file}
 }
 \value{
-appended all_maf file overriding the original data file
+make appended all_maf file in temp subdirectory of the old maf directory
 }
 \description{
 Append all_maf file

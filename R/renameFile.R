@@ -26,8 +26,8 @@ copyRenameVcf <- function(inputVcfDirectory, outputVcfDirectory) {
 }
 
 renameFile <- function(filename){
-  filenameSplits <- filename|>str_split("_v1")|>unlist()
-  id <- filenameSplits[1]
+  id <- filename|>str_extract("[A-Z]{1,2}[0-9]{2}-[0-9]{3,6}") 
+  #id <- filenameSplits[1]
   idSplits <- str_split(id, "-") |> unlist()
   
   if(length(idSplits) != 2)
