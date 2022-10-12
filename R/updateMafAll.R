@@ -13,6 +13,7 @@ updataMafAll <- function (){
  
   new_maf <- readLines("~/ngsData/OCAplus/new/mafAll/all_maftools.maf",
                        skipNul = TRUE)
+  ## append new maf to current maf
   write(new_maf[-1],
         file="~/ngsData/OCAplus/current/all_maftools.maf",
         append=TRUE)

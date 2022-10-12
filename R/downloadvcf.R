@@ -1,5 +1,3 @@
-
-
 #' downlad vcf file
 #' @examples
 #' \dontrun{
@@ -8,6 +6,8 @@
 #'
 #' @export
 #'
+
+
 downloadvcf <- function (){
 system2(command = "bash", c("-i", "~/downloadIonFiles.sh"))
 fileListRaw <- list.files("~/ngsData/OCAplus/raw", recursive = TRUE, full.names = TRUE)
